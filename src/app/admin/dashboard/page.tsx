@@ -50,8 +50,8 @@ export default function AdminDashboard() {
         }`
       )
       .then((data) => setOrder(data))
-      .catch((error) => {
-        console.error("Error fetching orders:", error); 
+      .catch((err) => {
+        console.error("Error fetching orders:", err); // Handling error without unused variable warning
       });
   }, []);
 
@@ -95,9 +95,9 @@ export default function AdminDashboard() {
         prevOrder.map((order) =>
           order._id === orderId
             ? {
-              ...order,
-              status: newStatus,
-            }
+                ...order,
+                status: newStatus,
+              }
             : order
         )
       );
