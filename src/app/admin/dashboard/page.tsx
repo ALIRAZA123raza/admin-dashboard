@@ -51,7 +51,7 @@ export default function AdminDashboard() {
       )
       .then((data) => setOrder(data))
       .catch((err) => {
-        console.error("Error fetching orders:", err); // Handling error without unused variable warning
+        console.error("Error fetching orders:", err); // Error handling is still here
       });
   }, []);
 
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
         prevOrder.filter((order) => order._id !== orderId)
       );
       Swal.fire("Deleted!", "Your order has been deleted.", "success");
-    } catch (error) {
+    } catch (err) {
       Swal.fire("Error!", "Failed to delete order.", "error");
     }
   };
@@ -95,9 +95,9 @@ export default function AdminDashboard() {
         prevOrder.map((order) =>
           order._id === orderId
             ? {
-                ...order,
-                status: newStatus,
-              }
+              ...order,
+              status: newStatus,
+            }
             : order
         )
       );
@@ -107,7 +107,7 @@ export default function AdminDashboard() {
       } else if (newStatus === "success") {
         Swal.fire("Order Completed", "Your order has been completed.", "success");
       }
-    } catch (error) {
+    } catch (err) {
       Swal.fire("Error!", "Failed to change status.", "error");
     }
   };
