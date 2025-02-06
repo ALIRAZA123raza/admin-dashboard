@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import Image from "next/image";
@@ -50,7 +50,9 @@ export default function AdminDashboard() {
         }`
       )
       .then((data) => setOrder(data))
-      .catch((error) => console.log("Error fetching orders:", error));
+      .catch((error) => {
+        console.error("Error fetching orders:", error); 
+      });
   }, []);
 
   const filterOrders =
@@ -198,7 +200,6 @@ export default function AdminDashboard() {
                               </li>
                             ))}
                           </ul>
-
                         </td>
                       </tr>
                     )}
